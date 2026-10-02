@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Manrope:wght@400;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Hanken Grotesk', sans-serif;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #aeb7b7;
+  background: #0f2a29;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: #0f2a29;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0f2a29;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
