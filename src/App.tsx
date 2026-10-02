@@ -1,40 +1,41 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Mail, MapPin, Menu, Phone, SlidersHorizontal, X } from 'lucide-react'
+import {
+  BadgeCheck,
+  ChevronDown,
+  Mail,
+  MapPin,
+  Menu,
+  MessageSquarePlus,
+  Phone,
+  Search,
+  SlidersHorizontal,
+  X,
+} from 'lucide-react'
 import { SpeedyPipeDetail } from './components/SpeedyPipeDetail'
 import { NotificaBelemDetail } from './components/NotificaBelemDetail'
 import { EasySSRDetail } from './components/EasySSRDetail'
 import { EnvinMonDetail } from './components/EnvinMonDetail'
 import { DesafiosView } from './components/DesafiosView'
 import { InspecaoDetail } from './components/InspecaoDetail'
+import imgINredeAmazoniaLogo from './assets/logo.svg'
+import imgViewsEye from './assets/icon-views-eye.svg'
+import imgSolutionsBulb from './assets/icon-solutions-bulb.svg'
+import imgArrowRight from './assets/icon-arrow-right.svg'
+import imgCompanyBuilding from './assets/icon-company-building.svg'
+import imgHeroPattern from './assets/background_vitrine.png'
+import imgNotificaMain from './assets/notifica-main.png'
+import imgEasySsrMain from './assets/easyssr-main.png'
+import imgEnvinMonMain from './assets/envinmon-main.png'
+import imgSpeedyPipeMain from './assets/speedypipe-main.png'
 
-const imgINredeAmazoniaLogo =
-  'https://www.figma.com/api/mcp/asset/21147224-c918-4b02-a2f2-8eb34d47b05a.svg'
-const imgHeroPattern =
-  'https://www.figma.com/api/mcp/asset/6fb28fcb-c55f-4d6f-8fc3-4859857218ed.png'
-const imgSearchIcon =
-  'https://www.figma.com/api/mcp/asset/32022f4c-ae8f-4f9d-b733-3cf3fddc2dbd.svg'
-const imgChevronDown =
-  'https://www.figma.com/api/mcp/asset/68441a4a-5406-4551-8ffa-85d83c91264c.svg'
-const imgCardOne =
-  'https://www.figma.com/api/mcp/asset/1e0a4e90-5c9d-4eac-829a-edbb001629fd.png'
-const imgCardTwo =
-  'https://www.figma.com/api/mcp/asset/b70519fc-dc94-4e1e-85a8-6ed702c1a38d.png'
-const imgCardThree =
-  'https://www.figma.com/api/mcp/asset/6a8b9c9d-6562-4224-a089-7469b3ad42b3.png'
-const imgCardFour =
-  'https://www.figma.com/api/mcp/asset/6637cb55-f4a3-4b2b-ae94-823a2384b230.png'
 const imgBenefitVisibility =
-  'https://www.figma.com/api/mcp/asset/ac0d37ba-3991-4314-ab02-7fbb9cd08857.svg'
+  imgViewsEye
 const imgBenefitMarket =
-  'https://www.figma.com/api/mcp/asset/81112ad8-14b2-435f-8438-be29f0a4d8b0.svg'
+  imgCompanyBuilding
 const imgBenefitInnovation =
-  'https://www.figma.com/api/mcp/asset/7b9327a7-f2a2-4f35-8b1c-af75686a7748.svg'
-const imgCtaBadge =
-  'https://www.figma.com/api/mcp/asset/f8c08dee-03d2-4b2f-995e-1f1fd120ac9c.svg'
+  imgSolutionsBulb
 const imgCtaArrow =
-  'https://www.figma.com/api/mcp/asset/fe7aa831-b087-4186-92a3-73a639ef796c.svg'
-const imgCalloutIcon =
-  'https://www.figma.com/api/mcp/asset/c18f1686-edcf-4a41-ac36-acd29c3a30c5.svg'
+  imgArrowRight
 type NavItem = {
   label: string
   href: string
@@ -51,14 +52,24 @@ const navigationItems: NavItem[] = [
   { label: 'Rede', href: '#rede' },
 ]
 
-function LogoMark({ onClick }: { onClick?: () => void }) {
+function LogoMark({
+  onClick,
+  onLightBackground = false,
+}: {
+  onClick?: () => void
+  onLightBackground?: boolean
+}) {
   return (
     <div
       onClick={onClick}
       className={`flex h-[40px] w-[73.39px] items-center justify-center ${onClick ? 'cursor-pointer' : ''}`}
       aria-label="iNREDE Amazônia logo"
     >
-      <img src={imgINredeAmazoniaLogo} alt="Logo iNREDE Amazônia" className="h-full w-full" />
+      <img
+        src={imgINredeAmazoniaLogo}
+        alt="Logo iNREDE Amazônia"
+        className={`h-[38px] w-[49px] object-contain ${onLightBackground ? 'brightness-0' : ''}`}
+      />
     </div>
   )
 }
@@ -125,7 +136,7 @@ const cards: CardItem[] = [
       'Sistema fim a fim para cadastro de cidadãos e broadcast multicanal de mensagens, com dashboard analítico para segmentação e transparência na gestão de interações públicas.',
     titular: 'Fundação Guamá',
     stack: 'Java, JavaScript',
-    image: imgCardOne,
+    image: imgNotificaMain,
     trlLabel: 'TRL 4 - Validação em Laboratório',
   },
   {
@@ -135,7 +146,7 @@ const cards: CardItem[] = [
       'Plataforma web intuitiva para identificação, conversão e análise comparativa em lote de microssatélites a partir de arquivos FASTA e GenBank, sem restrição de tamanho.',
     titular: 'ISACI',
     stack: 'Python',
-    image: imgCardTwo,
+    image: imgEasySsrMain,
     trlLabel: 'TRL 4 - Validação em Laboratório',
   },
   {
@@ -145,7 +156,7 @@ const cards: CardItem[] = [
       'Aplicação web para registro georreferenciado, gestão e visualização de parâmetros físico-químicos da qualidade da água (pH, temperatura, oxigênio dissolvido).',
     titular: 'ISACI',
     stack: 'Python',
-    image: imgCardThree,
+    image: imgEnvinMonMain,
     trlLabel: 'TRL 4 - Validação em Laboratório',
   },
   {
@@ -155,7 +166,7 @@ const cards: CardItem[] = [
       'Pipeline web automatizado que integra 7 ferramentas para processar dados brutos (raw reads) até a taxonomia, predição funcional e detecção de genes de resistência.',
     titular: 'ISACI',
     stack: 'Python',
-    image: imgCardFour,
+    image: imgSpeedyPipeMain,
     trlLabel: 'TRL 4 - Validação em Laboratório',
   },
 ]
@@ -224,7 +235,7 @@ function CtaSection() {
     <section className="bg-[#f2f4f4] px-6 py-[52px]">
       <div className="mx-auto flex max-w-[760px] flex-col items-center text-center">
         <div className="mb-[16px] flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#008282] shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
-          <img src={imgCtaBadge} alt="" className="h-[24px] w-[18px]" />
+          <BadgeCheck aria-hidden="true" className="h-[24px] w-[24px] text-white" strokeWidth={1.8} />
         </div>
 
         <h2 className="m-0 mb-[16px] max-w-[720px] text-[28px] font-semibold leading-[36px] tracking-[-0.02em] text-[#191c1d]">
@@ -541,7 +552,7 @@ function App() {
           >
             <div className="flex shrink-0 items-center justify-between border-b border-[#d7dbdb] px-5 py-4">
               <div className="flex items-center gap-3">
-                <LogoMark />
+                <LogoMark onLightBackground />
               </div>
               <button
                 type="button"
@@ -772,11 +783,11 @@ function App() {
       ) : (
         <>
           <section id="sobre" className="relative overflow-hidden bg-[linear-gradient(166.11364704562317deg,#002b2b_0%,#004f4f_100%)] py-12 sm:py-16 lg:py-[96px]">
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0">
           <img
             src={imgHeroPattern}
             alt=""
-            className="h-[195.93%] w-full max-w-none object-cover object-left"
+            className="h-full w-full object-cover object-center opacity-35"
           />
         </div>
 
@@ -795,7 +806,7 @@ function App() {
           <div className="flex w-full min-w-0 flex-1 items-center gap-2 lg:w-auto lg:flex-[1_1_280px]">
             <div className="relative flex h-[40px] min-w-0 flex-1 items-center rounded-[8px] border border-[#dfe5e5] bg-[#f8fafb] lg:max-w-[360px] lg:flex-[1_1_280px]">
               <span className="pointer-events-none absolute left-[12px] top-1/2 -translate-y-1/2">
-                <img src={imgSearchIcon} alt="" className="h-[16px] w-[16px]" />
+                <Search aria-hidden="true" className="h-[16px] w-[16px] text-[#64748b]" />
               </span>
               <input
                 type="text"
@@ -849,9 +860,8 @@ function App() {
                 <option value="trl-asc">TRL (menor p/ maior)</option>
                 <option value="alphabetical">Ordem alfabética</option>
               </select>
-              <img
-                src={imgChevronDown}
-                alt=""
+              <ChevronDown
+                aria-hidden="true"
                 className="pointer-events-none absolute right-3 top-1/2 h-[10px] w-[10px] -translate-y-1/2"
               />
             </div>
@@ -1019,7 +1029,7 @@ function App() {
               className="mt-5 flex w-full items-center gap-3 rounded-xl border border-[#006767] bg-[#e6f3f2] px-3 py-3 cursor-pointer hover:bg-[#d8ecea] transition-colors"
             >
               <div className="flex h-7 w-7 items-center justify-center">
-                <img src={imgCalloutIcon} alt="" className="h-6 w-6" />
+                <MessageSquarePlus aria-hidden="true" className="h-6 w-6 text-[#006767]" strokeWidth={1.7} />
               </div>
 
               <div className="flex flex-col items-start">
@@ -1060,7 +1070,7 @@ function App() {
                   >
                     <div
                       onClick={handleOpenDetail}
-                      className="h-48 w-full overflow-hidden cursor-pointer"
+                      className="h-48 w-full cursor-pointer overflow-hidden bg-[#e6f3f2]"
                     >
                       <img
                         src={card.image}

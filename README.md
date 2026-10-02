@@ -24,7 +24,7 @@ Aplicação web de uma Vitrine Tecnológica. O projeto apresenta tecnologias des
 - Node.js `^20.19.0` ou `>=22.12.0`.
 - npm, incluído na instalação do Node.js.
 
-Algumas imagens e fontes são carregadas de serviços externos; é necessário acesso à internet para que todos os recursos visuais sejam exibidos.
+As imagens e os ícones da aplicação são locais. As fontes Hanken Grotesk e Manrope são carregadas do Google Fonts; sem acesso à internet, o navegador usará fontes alternativas.
 
 ## Executar localmente
 
