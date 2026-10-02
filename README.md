@@ -1,32 +1,77 @@
-# React + TypeScript + Vite
+# Vitrine Tecnológica
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicação web de uma Vitrine Tecnológica. O projeto apresenta tecnologias desenvolvidas por instituições de pesquisa e facilita a descoberta dessas soluções por potenciais parceiros.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Catálogo de tecnologias com busca por palavra-chave, filtros por área, TRL e titular, e opções de ordenação.
+- Páginas de detalhes para Notifica Belém, EasySSR, EnvinMon e SpeedyPipe4Meta (SP4M).
+- Área de desafios tecnológicos com busca, detalhes e formulários de interesse/proposta.
+- Navegação responsiva: menu lateral e filtros em telas menores, além de carrossel horizontal para os cards de benefícios.
+- Formulários demonstrativos nas páginas de tecnologia e desafios.
 
-## React Compiler
+## Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript 6
+- Tailwind CSS 4
+- Vite 8
+- Lucide React para ícones
+- Oxlint para análise estática
 
-## Expanding the Oxlint configuration
+## Requisitos
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- Node.js `^20.19.0` ou `>=22.12.0`.
+- npm, incluído na instalação do Node.js.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+Algumas imagens e fontes são carregadas de serviços externos; é necessário acesso à internet para que todos os recursos visuais sejam exibidos.
+
+## Executar localmente
+
+1. Clone o repositório:
+
+  ```bash
+  git clone <URL-DO-REPOSITORIO>
+  ```
+
+2. Entre na pasta do projeto:
+
+  ```bash
+  cd <PASTA-DO-PROJETO>
+  ```
+
+3. Instale as dependências registradas no lockfile:
+
+  ```bash
+  npm ci
+  ```
+
+4. Inicie o servidor de desenvolvimento:
+
+  ```bash
+  npm run dev
+  ```
+
+5. Abra no navegador o endereço informado pelo Vite, normalmente `http://localhost:5173/`.
+
+## Comandos disponíveis
+
+```bash
+npm run dev      # inicia o servidor de desenvolvimento
+npm run build    # verifica os tipos e gera a versão de produção em dist/
+npm run preview  # serve localmente a versão gerada em dist/
+npm run lint     # executa o Oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Para testar a versão de produção localmente, execute primeiro `npm run build` e depois `npm run preview`.
+
+## Organização do projeto
+
+- `src/App.tsx`: catálogo, navegação, estado dos filtros e ordenação.
+- `src/components/`: páginas de detalhes das tecnologias, área de desafios e componentes relacionados.
+- `src/assets/`: imagens e ícones locais.
+- `public/`: arquivos estáticos servidos diretamente pelo Vite.
+
+## Escopo atual
+
+Esta versão é uma experiência de front-end. Os dados do catálogo e dos desafios estão definidos no código, e as interações dos formulários exibem uma confirmação local. Não há integração com API, envio de e-mail ou persistência dos dados submetidos.
